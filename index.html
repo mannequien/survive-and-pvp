@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>PvP Survival</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================
+     ВЕРХНЯЯ ПАНЕЛЬ
+===================================== -->
+
+<div class="top-panel">
+
+    <div class="stat">
+        ❤️ HP:
+        <span id="hp">100.0</span>
+    </div>
+
+    <div class="stat">
+        💪 Сила:
+        <span id="strength">0.0</span>
+    </div>
+
+    <div class="stat">
+        🏃 Ловкость:
+        <span id="agility">0.0</span>
+    </div>
+
+    <div class="stat">
+        🛡️ Броня:
+        <span id="armor">0.0</span>
+    </div>
+
+    <div class="stat coins">
+        🪙
+        <span id="coins">0.0</span>
+    </div>
+
+</div>
+
+
+
+<!-- =====================================
+     ИНФОРМАЦИЯ О ВОЛНЕ
+===================================== -->
+
+<div class="wave-panel">
+
+    <div>
+        🌊 ВОЛНА
+        <span id="wave">1</span>
+    </div>
+
+    <div>
+        ⏱️
+        <span id="waveTimer">05:00</span>
+    </div>
+
+    <div>
+        🪙 За убийство:
+        <span id="coinReward">1.0</span>
+    </div>
+
+</div>
+
+
+
+<!-- =====================================
+     ИГРОВАЯ АРЕНА
+===================================== -->
+
+<div
+    id="arena"
+    class="arena"
+>
+
+
+    <!-- ИГРОК -->
+
+    <div
+        id="player"
+        class="player"
+    >
+        🧍
+    </div>
+
+
+</div>
+
+
+
+<!-- =====================================
+     КНОПКИ
+===================================== -->
+
+<div class="controls">
+
+    <button
+        id="attackButton"
+        class="attack-button"
+    >
+        ⚔️ БИТЬ
+    </button>
+
+
+    <button
+        id="autoAttackButton"
+        class="auto-button"
+    >
+        ⚔️ АВТОАТАКА: ВЫКЛ
+    </button>
+
+</div>
+
+
+
+<!-- =====================================
+     МАГАЗИН
+===================================== -->
+
+<div class="shop">
+
+    <h2>
+        🛒 МАГАЗИН
+    </h2>
+
+
+    <!-- МЕЧ -->
+
+    <div class="shop-item">
+
+        <div class="item-icon">
+            ⚔️
+        </div>
+
+        <div class="item-info">
+
+            <h3>
+                Железный меч
+            </h3>
+
+            <p>
+                +20 силы
+            </p>
+
+            <p>
+                Цена: 1500 🪙
+            </p>
+
+        </div>
+
+        <button
+            id="buyIronSword"
+            onclick="buyIronSword()"
+        >
+            КУПИТЬ — 1500 🪙
+        </button>
+
+    </div>
+
+
+
+    <!-- БРОНЯ -->
+
+    <div class="shop-item">
+
+        <div class="item-icon">
+            🛡️
+        </div>
+
+        <div class="item-info">
+
+            <h3>
+                Железная броня
+            </h3>
+
+            <p>
+                +10 брони
+            </p>
+
+            <p>
+                Цена: 2000 🪙
+            </p>
+
+        </div>
+
+        <button
+            id="buyIronArmor"
+            onclick="buyIronArmor()"
+        >
+            КУПИТЬ — 2000 🪙
+        </button>
+
+    </div>
+
+
+
+    <!-- БОТИНКИ -->
+
+    <div class="shop-item">
+
+        <div class="item-icon">
+            👟
+        </div>
+
+        <div class="item-info">
+
+            <h3>
+                Беговые ботинки
+            </h3>
+
+            <p>
+                +15 ловкости
+            </p>
+
+            <p>
+                Цена: 1200 🪙
+            </p>
+
+        </div>
+
+        <button
+            id="buyRunningBoots"
+            onclick="buyRunningBoots()"
+        >
+            КУПИТЬ — 1200 🪙
+        </button>
+
+    </div>
+
+<!-- ПРОКАЧКА HP -->
+
+<div class="shop-item">
+
+    <div class="item-icon">
+        ❤️
+    </div>
+
+    <div class="item-info">
+
+        <h3>
+            Улучшение здоровья
+        </h3>
+
+        <p>
+            +10 максимального HP
+        </p>
+
+        <p>
+            Цена: 100 🪙
+        </p>
+
+    </div>
+
+    <button
+        id="buyHP"
+        onclick="buyHP()"
+    >
+        КУПИТЬ — 100 🪙
+    </button>
+
+</div>
+
+</div>
+<button onclick="coins += 1000; updateStats();">
+    🧪 +100 МОНЕТ (ТЕСТ)
+</button>
+
+
+<!-- =====================================
+     GAME OVER
+===================================== -->
+
+<div
+    id="gameOver"
+    class="game-over"
+>
+
+    <div class="game-over-box">
+
+        <h1>
+            💀 ТЫ УМЕР
+        </h1>
+
+        <p id="finalKills">
+            Убийства: 0
+        </p>
+
+        <button
+            id="restartButton"
+        >
+            🔄 НАЧАТЬ ЗАНОВО
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================
+     JAVASCRIPT
+===================================== -->
+
+<script
+    src="game.js"
+></script>
+
+
+</body>
+
+</html>

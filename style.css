@@ -1,0 +1,572 @@
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+
+    margin: 0;
+
+    background:
+        #111827;
+
+    color: white;
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    min-height: 100vh;
+
+    text-align: center;
+
+    overflow-x: hidden;
+}
+
+
+/* =====================================
+   ВЕРХНЯЯ ПАНЕЛЬ
+===================================== */
+
+.top-panel {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+
+    padding: 12px;
+}
+
+
+.stat {
+
+    background:
+        #1f2937;
+
+    padding: 10px 14px;
+
+    border-radius: 10px;
+
+    font-size: 15px;
+}
+
+
+.coins {
+
+    font-weight: bold;
+
+    font-size: 18px;
+}
+
+
+/* =====================================
+   ВОЛНА
+===================================== */
+
+.wave-panel {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 25px;
+
+    flex-wrap: wrap;
+
+    padding: 10px;
+
+    font-size: 18px;
+
+    font-weight: bold;
+}
+
+
+/* =====================================
+   АРЕНА
+===================================== */
+
+.arena {
+
+    position: relative;
+
+    width: min(
+        900px,
+        95vw
+    );
+
+    height: 500px;
+
+    margin: 10px auto;
+
+    background:
+        #182235;
+
+    border:
+        2px solid #374151;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+
+/* =====================================
+   ИГРОК
+===================================== */
+
+.player {
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 50%;
+
+    transform:
+        translate(
+            -50%,
+            -50%
+        );
+
+    font-size: 55px;
+
+    z-index: 10;
+
+    transition:
+        transform 0.08s;
+}
+
+
+/* =====================================
+   ВРАГ
+===================================== */
+
+.enemy {
+
+    position: absolute;
+
+    font-size: 42px;
+
+    user-select: none;
+
+    z-index: 5;
+
+    transition:
+        transform 0.05s;
+}
+
+
+/* =====================================
+   ЭФФЕКТ УДАРА
+===================================== */
+
+.hit-effect {
+
+    position: absolute;
+
+    transform:
+        translate(
+            -50%,
+            -50%
+        );
+
+    font-size: 35px;
+
+    pointer-events: none;
+
+    animation:
+        hitAnimation 0.35s
+        forwards;
+
+    z-index: 20;
+}
+
+
+@keyframes hitAnimation {
+
+    0% {
+
+        opacity: 1;
+
+        transform:
+            translate(
+                -50%,
+                -50%
+            )
+            scale(0.5);
+    }
+
+    100% {
+
+        opacity: 0;
+
+        transform:
+            translate(
+                -50%,
+                -80px
+            )
+            scale(1.5);
+    }
+}
+
+
+/* =====================================
+   ТЕКСТ УРОНА
+===================================== */
+
+.damage-text {
+
+    position: absolute;
+
+    transform:
+        translate(
+            -50%,
+            -50%
+        );
+
+    color: #ff5555;
+
+    font-weight: bold;
+
+    font-size: 20px;
+
+    pointer-events: none;
+
+    animation:
+        damageAnimation 0.6s
+        forwards;
+
+    z-index: 30;
+}
+
+
+@keyframes damageAnimation {
+
+    0% {
+
+        opacity: 1;
+
+        transform:
+            translate(
+                -50%,
+                -50%
+            );
+    }
+
+    100% {
+
+        opacity: 0;
+
+        transform:
+            translate(
+                -50%,
+                -100px
+            );
+    }
+}
+
+
+/* =====================================
+   КНОПКИ
+===================================== */
+
+.controls {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+
+    margin: 15px;
+}
+
+
+button {
+
+    border: none;
+
+    border-radius: 12px;
+
+    padding: 14px 22px;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.1s,
+        opacity 0.1s;
+}
+
+
+button:hover {
+
+    transform:
+        scale(1.03);
+}
+
+
+button:active {
+
+    transform:
+        scale(0.96);
+}
+
+
+.attack-button {
+
+    background:
+        #dc2626;
+
+    color: white;
+
+    font-size: 20px;
+
+    min-width: 160px;
+}
+
+
+.auto-button {
+
+    background:
+        #2563eb;
+
+    color: white;
+}
+
+
+/* =====================================
+   МАГАЗИН
+===================================== */
+
+.shop {
+
+    width: min(
+        800px,
+        95vw
+    );
+
+    margin:
+        25px auto 50px;
+
+    padding: 20px;
+
+    background:
+        #1f2937;
+
+    border-radius: 18px;
+}
+
+
+.shop h2 {
+
+    margin-top: 0;
+
+    font-size: 28px;
+}
+
+
+/* =====================================
+   ПРЕДМЕТ
+===================================== */
+
+.shop-item {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin: 12px 0;
+
+    padding: 15px;
+
+    background:
+        #111827;
+
+    border-radius: 14px;
+
+    text-align: left;
+}
+
+
+.item-icon {
+
+    font-size: 45px;
+
+    width: 60px;
+
+    text-align: center;
+}
+
+
+.item-info {
+
+    flex: 1;
+}
+
+
+.item-info h3 {
+
+    margin:
+        0 0 5px;
+
+    font-size: 20px;
+}
+
+
+.item-info p {
+
+    margin: 4px 0;
+
+    color: #d1d5db;
+}
+
+
+.shop-item button {
+
+    background:
+        #eab308;
+
+    color: #111827;
+
+    white-space: nowrap;
+}
+
+
+.shop-item button:disabled {
+
+    background:
+        #4b5563;
+
+    color: #d1d5db;
+
+    cursor: default;
+
+    transform: none;
+}
+
+
+/* =====================================
+   GAME OVER
+===================================== */
+
+.game-over {
+
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        rgba(
+            0,
+            0,
+            0,
+            0.75
+        );
+
+    justify-content: center;
+
+    align-items: center;
+
+    z-index: 100;
+}
+
+
+.game-over-box {
+
+    width: min(
+        400px,
+        90vw
+    );
+
+    padding: 35px;
+
+    background:
+        #1f2937;
+
+    border-radius: 20px;
+}
+
+
+.game-over-box h1 {
+
+    font-size: 35px;
+
+    margin-top: 0;
+}
+
+
+.game-over-box button {
+
+    background:
+        #22c55e;
+
+    color: white;
+
+    margin-top: 15px;
+}
+
+
+/* =====================================
+   ТЕЛЕФОН
+===================================== */
+
+@media (
+    max-width: 600px
+) {
+
+    .arena {
+
+        height: 420px;
+
+        border-radius: 12px;
+    }
+
+
+    .enemy {
+
+        font-size: 35px;
+    }
+
+
+    .player {
+
+        font-size: 48px;
+    }
+
+
+    .shop-item {
+
+        flex-wrap: wrap;
+    }
+
+
+    .shop-item button {
+
+        width: 100%;
+    }
+
+
+    .wave-panel {
+
+        font-size: 15px;
+
+        gap: 10px;
+    }
+
+}
